@@ -8,96 +8,22 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 
 
-const fetchFont = () => {
-  return Font.loadAsync({
-    'Heavitas': require('../assets/fonts/Heavitas.ttf'),
-  });
-};
+const About = () => {
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-class About extends Component {
-
-  //importing custom downloadable font
-  getCurrentDate(){
-
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-
-    switch(month) {
-      case 1:
-        month = 'JANUARY';
-        break;
-
-      case 2:
-        month = 'FEBRUARY';
-        break;
-      
-      case 3:
-        month = 'MARCH';
-        break;
-      
-      case 4:
-        month = 'APRIL';
-        break;
-
-      case 5:
-        month = 'MAY';
-        break;
-      
-      case 6:
-        month = 'JUNE';
-        break;
-
-      case 7:
-        month = 'JULY';
-        break;
-      
-      case 8:
-        month = 'AUGUST';
-        break;
-      
-      case 9:
-        month = 'SEPTEMBER';
-        break;
-      
-      case 10:
-        month = 'OCTOBER';
-        break;
-      
-      case 11:
-        month = 'NOVEMBER';
-        break;
-      
-      case 12:
-        month = 'DECEMBER';
-        break;
-    }
-
-
-    //Alert.alert(date + '-' + month + '-' + year);
-    // You can turn it in to your desired format
-    return date + ' ' + month + ' ' + year;//format: dd-mm-yyyy;
-  }
-
-  render() {
-
-
-    return (
-           <View style={styles.container}>
-            <ImageBackground style={styles.topImg} source={require('../assets/virus.jpg')} resizeMode="cover">
-              <View style={styles.topBox}>
-                <Text style={styles.title}>ABOUT</Text>
-              </View>
-            </ImageBackground>
-            <View style={styles.statusBox}>
-              <Text style={styles.statusTitle2}>DEVELOPED BY NOOR RAIHAN</Text>
-            </View>
-           </View>
-       );
-   }
+  return (
+    <View style={styles.container}>
+     <ImageBackground style={styles.topImg} source={require('../assets/virus.jpg')} resizeMode="cover">
+       <View style={styles.topBox}>
+         <Text style={styles.title}>ABOUT</Text>
+       </View>
+     </ImageBackground>
+     <View style={styles.statusBox}>
+       <Text style={styles.statusTitle2}>DEVELOPED BY NOOR RAIHAN</Text>
+     </View>
+    </View>
+  );  
 }
+
 
 const styles = {
    container: {

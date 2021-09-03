@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+//import screens
 import HomeScreen from './screens/HomeScreen'
 import StatisticScreen from './screens/StatisticScreen'
 import Symptoms from './screens/Symptoms'
@@ -14,46 +15,45 @@ import About from './screens/About'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-class App extends Component {
 
+const App = () => {
 
-  render() {
+  return (
+    <NavigationContainer> 
+      <Tab.Navigator barStyle={{ backgroundColor: '#EA0449' }} screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
 
-    return (
-      <NavigationContainer> 
-        <Tab.Navigator barStyle={{ backgroundColor: '#EA0449' }} screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'Statistic') {
+            iconName = 'stats-chart';
+          } else if(route.name === 'Status') {
+            iconName = 'newspaper';
+          } else if(route.name === 'About') {
+            iconName = 'information-circle';
+          }
 
-            if (route.name === 'Home') {
-              iconName = 'home';
-            } else if (route.name === 'Statistic') {
-              iconName = 'stats-chart';
-            } else if(route.name === 'Symptoms') {
-              iconName = 'newspaper';
-            } else if(route.name === 'About') {
-              iconName = 'information-circle';
-            }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
 
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'white',
-          tabBarInactiveTintColor: 'white',
-          tabBarStyle: {
-            backgroundColor: '#EA0449'
-          },
-          headerShown: false
-        })}
-      >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Statistic" component={StatisticScreen} />
-          <Tab.Screen name="Symptoms" component={Symptoms} />
-          <Tab.Screen name="About" component={About} />
-        </Tab.Navigator>
-      </NavigationContainer>
-       );
-   }
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: '#f26690',
+        tabBarStyle: {
+          backgroundColor: '#EA0449'
+        },
+        headerShown: false
+      })}
+    >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Statistic" component={StatisticScreen} />
+        <Tab.Screen name="Status" component={Symptoms} />
+        <Tab.Screen name="About" component={About} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
+
 
 const styles = {
    navContainer: {
