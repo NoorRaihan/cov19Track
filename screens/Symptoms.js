@@ -20,7 +20,7 @@ const Symptoms = () => {
        </View>
      </ImageBackground>
      <View style={styles.statusBox}>
-       <Text style={styles.statusTitle2}>NULL</Text>
+       <Text style={styles.statusTitle2}>NULLa</Text>
      </View>
      <View style={styles.detailBox}>
        <Text style={styles.statusTitle2}>NULL</Text>
